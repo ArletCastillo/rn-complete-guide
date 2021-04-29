@@ -9,6 +9,9 @@ export default function App() {
   const [isAddMode, setIsAddMode] = useState(false);
 
   const addGoalHandler = goalName => {
+    if (goalName.length === 0) {
+      return;
+    }
     // this way, it guarantees the latest list of goals
     setCourseGoals(currentGoals => [...currentGoals, { id: Math.random().toString(), value: goalName }]);
     setIsAddMode(false);
